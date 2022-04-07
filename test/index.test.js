@@ -13,11 +13,16 @@
 /* eslint-env mocha */
 
 import assert from 'assert';
-import { main } from '../src/index.js';
+import { main, foo } from '../src/index.js';
 
 describe('Index Tests', () => {
   it('index function is present', async () => {
     const result = await main();
     assert.strictEqual(result, 'Hello, world.');
+  });
+
+  it('foo', async () => {
+    const result = foo();
+    assert.strictEqual(result, 'bar');
   });
 });
