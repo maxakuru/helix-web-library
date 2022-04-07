@@ -18,3 +18,7 @@
 export function main(name = 'world') {
   return `Hello, ${name}.`;
 }
+
+export function foo() {
+  return 'bar';
+}
