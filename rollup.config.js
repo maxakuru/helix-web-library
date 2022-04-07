@@ -10,18 +10,11 @@
  * governing permissions and limitations under the License.
  */
 
-import { terser } from 'rollup-plugin-terser';
 import pkg from './package.json';
 
 // The banner to add to the top of each file
 // Pulls details from the package.json file
 const banner = `/*! ${pkg.name} v${pkg.version} | ${pkg.description} | Copyright ${new Date().getFullYear()} | ${pkg.license} license */`;
-
-// The formats to output
-// Full list here: https://rollupjs.org/guide/en/#outputformat
-const formats = ['es', 'iife'];
-
-const devMode = (process.env.NODE_ENV === 'development');
 
 export default {
 	input: 'src/index.js',
@@ -30,14 +23,7 @@ export default {
 		{
 			file: 'build/helix-core.es.js',
 			format: 'es',
-			sourcemap: devMode ? 'inline' : false,
-			banner,
-			exports: 'auto',
-		},
-		{
-			file: 'build/helix-core.es.min.js',
-			format: 'es',
-			plugins: [terser()],
+			sourcemap: true,
 			banner,
 			exports: 'auto',
 		},
