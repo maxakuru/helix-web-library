@@ -56,6 +56,9 @@
     "*.js": "eslint",
     "*.cjs": "eslint"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "config": {
     "commitizen": {
       "path": "node_modules/cz-conventional-changelog"
