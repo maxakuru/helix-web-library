@@ -21,7 +21,7 @@ export default {
 	inlineDynamicImports: true,
 	output: [
 		{
-			file: 'build/helix-core.es.js',
+			file: 'dist/helix-core.es.js',
 			format: 'es',
 			sourcemap: true,
 			banner,
