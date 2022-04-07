@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/dylandepass/helix-web-library/compare/v1.2.1...v1.2.2) (2022-04-07)
+
+
+### Bug Fixes
+
+* default export from app file ([#10](https://github.com/dylandepass/helix-web-library/issues/10)) ([50b123a](https://github.com/dylandepass/helix-web-library/commit/50b123a018ca7a583d2ea0ec44436d5af4440508))
+
 ## [1.2.1](https://github.com/dylandepass/helix-web-library/compare/v1.2.0...v1.2.1) (2022-04-07)
 
 
