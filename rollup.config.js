@@ -10,22 +10,52 @@
  * governing permissions and limitations under the License.
  */
 
+import { terser } from 'rollup-plugin-terser';
 import pkg from './package.json';
 
 // The banner to add to the top of each file
 // Pulls details from the package.json file
 const banner = `/*! ${pkg.name} v${pkg.version} | ${pkg.description} | Copyright ${new Date().getFullYear()} | ${pkg.license} license */`;
 
-export default {
-	input: 'src/index.js',
-	inlineDynamicImports: true,
-	output: [
-		{
-			file: 'dist/helix-web-library.es.js',
-			format: 'es',
-			sourcemap: true,
-			banner,
-			exports: 'auto',
-		},
-	],
-};
+export default [{
+  input: 'src/core.js',
+  inlineDynamicImports: true,
+  output: [
+    {
+      file: `dist/helix-web-core-${pkg.version}.esm.js`,
+      format: 'es',
+      sourcemap: false,
+      banner,
+      exports: 'auto',
+    },
+    {
+      file: `dist/helix-web-core-${pkg.version}.esm.min.js`,
+      format: 'es',
+      sourcemap: false,
+      banner,
+      exports: 'auto',
+      plugins: [terser({ format: { comments: false } })],
+    },
+  ],
+},
+{
+  input: 'src/index.js',
+  inlineDynamicImports: true,
+  output: [
+    {
+      file: `dist/helix-web-framework-${pkg.version}.esm.js`,
+      format: 'es',
+      sourcemap: false,
+      banner,
+      exports: 'auto',
+    },
+    {
+      file: `dist/helix-web-framework-${pkg.version}.esm.min.js`,
+      format: 'es',
+      sourcemap: false,
+      banner,
+      exports: 'auto',
+      plugins: [terser({ format: { comments: false } })],
+    },
+  ],
+}];

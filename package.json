@@ -49,8 +49,9 @@
     "lint-staged": "12.3.4",
     "mocha": "9.2.1",
     "mocha-multi-reporters": "1.5.1",
-    "semantic-release": "19.0.2",
-    "rollup": "2.70.1"
+    "rollup": "2.70.1",
+    "rollup-plugin-terser": "7.0.2",
+    "semantic-release": "19.0.2"
   },
   "lint-staged": {
     "*.js": "eslint",

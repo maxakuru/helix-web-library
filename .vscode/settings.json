@@ -2,9 +2,11 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
+  "eslint.format.enable": true,
   "eslint.validate": [
     "javascript",
     "json"
   ],
+  "editor.insertSpaces": true,
   "prettier.enable": false
 }

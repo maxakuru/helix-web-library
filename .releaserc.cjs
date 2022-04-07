@@ -12,7 +12,10 @@ module.exports = {
     }],
     ["@semantic-release/github", {
       "assets": [
-        { "path": "dist/helix-web-library.es.js", "label": "Helix Web Library ESM" },
+        { "path": "dist/helix-web-core-*.esm.js", "label": "Helix Web Core ESM" },
+        { "path": "dist/helix-web-core-*.esm.min.js", "label": "Helix Web Core ESM (Minified)" },
+        { "path": "dist/helix-web-framework-*.esm.js", "label": "Helix Web Framework ESM" },
+        { "path": "dist/helix-web-framework-*.esm.min.js", "label": "Helix Web Framework ESM (Minified)" },
       ]
     }]
   ],
