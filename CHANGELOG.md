@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/dylandepass/helix-web-library/compare/v1.0.0...v1.1.0) (2022-04-07)
+
+
+### Features
+
+* zar (ci check) ([#5](https://github.com/dylandepass/helix-web-library/issues/5)) ([93d7b1f](https://github.com/dylandepass/helix-web-library/commit/93d7b1fc5e07966bb69bb05a23eed32c85299755))
+
 # 1.0.0 (2022-04-07)
 
 
