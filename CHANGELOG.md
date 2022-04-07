@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/dylandepass/helix-web-library/compare/v1.1.2...v1.2.0) (2022-04-07)
+
+
+### Features
+
+* create core and framework builds ([#8](https://github.com/dylandepass/helix-web-library/issues/8)) ([8fde819](https://github.com/dylandepass/helix-web-library/commit/8fde8191f4d37e1b1434ad63338f6b3a7d815c2e))
+
 ## [1.1.2](https://github.com/dylandepass/helix-web-library/compare/v1.1.1...v1.1.2) (2022-04-07)
 
 
