@@ -15,6 +15,7 @@ module.exports = {
   extends: '@adobe/helix',
   env: {
     node: true,
+    browser: true,
     es6: true,
   },
   parserOptions: {
