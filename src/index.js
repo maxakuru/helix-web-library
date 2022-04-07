@@ -22,3 +22,7 @@ export function main(name = 'world') {
 export function foo() {
   return 'bar';
 }
+
+export function zar() {
+  return 'car';
+}

@@ -13,7 +13,7 @@
 /* eslint-env mocha */
 
 import assert from 'assert';
-import { main, foo } from '../src/index.js';
+import { main, foo, zar } from '../src/index.js';
 
 describe('Index Tests', () => {
   it('index function is present', async () => {
@@ -24,5 +24,10 @@ describe('Index Tests', () => {
   it('foo', async () => {
     const result = foo();
     assert.strictEqual(result, 'bar');
+  });
+
+  it('zar', async () => {
+    const result = zar();
+    assert.strictEqual(result, 'car');
   });
 });
