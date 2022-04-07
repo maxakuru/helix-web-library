@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/dylandepass/helix-web-library/compare/v1.1.1...v1.1.2) (2022-04-07)
+
+
+### Bug Fixes
+
+* run build ([#7](https://github.com/dylandepass/helix-web-library/issues/7)) ([3f795ab](https://github.com/dylandepass/helix-web-library/commit/3f795abd287df34dd03c06d4bb060da4485ec698))
+
 ## [1.1.1](https://github.com/dylandepass/helix-web-library/compare/v1.1.0...v1.1.1) (2022-04-07)
 
 
