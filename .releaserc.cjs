@@ -10,7 +10,11 @@ module.exports = {
       "assets": ["package.json", "CHANGELOG.md"],
       "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
     }],
-    ["@semantic-release/github", {}]
+    ["@semantic-release/github", {
+      "assets": [
+        { "path": "dist/helix-web-library.es.js", "label": "Helix Web Library ESM" },
+      ]
+    }]
   ],
   branches: ['main'],
 };
