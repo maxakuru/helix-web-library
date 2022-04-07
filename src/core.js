@@ -92,7 +92,7 @@ export function getMetadata(name) {
 
 /**
  * Adds one or more URLs to the dependencies for publishing.
- * @param {string|[string]} url The URL(s) to add as dependencies
+ * @param {string|string[]} url The URL(s) to add as dependencies
  */
 export function addPublishDependencies(url) {
   const urls = Array.isArray(url) ? url : [url];
@@ -117,7 +117,7 @@ export function toClassName(name) {
 
 /**
  * Wraps each section in an additional {@code div}.
- * @param {[Element]} $sections The sections
+ * @param {Element[]} $sections The sections
  */
 function wrapSections($sections) {
   $sections.forEach(($div) => {
@@ -406,7 +406,7 @@ export function makeLinksRelative(main, productionDomains) {
 /**
  * Normalizes all headings within a container element.
  * @param {Element} $elem The container element
- * @param {[string]]} allowedHeadings The list of allowed headings (h1 ... h6)
+ * @param {string[]} allowedHeadings The list of allowed headings (h1 ... h6)
  */
 export function normalizeHeadings($elem, allowedHeadings) {
   const allowed = allowedHeadings.map((h) => h.toLowerCase());
