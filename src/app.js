@@ -10,7 +10,7 @@
  * governing permissions and limitations under the License.
  */
 
-/* eslint-disable class-methods-use-this, import/prefer-default-export */
+/* eslint-disable class-methods-use-this */
 
 import {
   initHlx,
@@ -29,7 +29,7 @@ import {
   registerPerformanceLogger,
 } from './core.js';
 
-export class HelixApp {
+export default class HelixApp {
   constructor(config) {
     this.config = config;
     this.rumEnabled = false;

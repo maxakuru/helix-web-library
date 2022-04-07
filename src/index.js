@@ -11,4 +11,4 @@
  */
 
 export * from './core.js';
-export * from './app.js';
+export { default as HelixApp } from './app.js';
