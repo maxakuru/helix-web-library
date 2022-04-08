@@ -30,7 +30,7 @@ import {
 } from './core.js';
 
 export default class HelixApp {
-  constructor(document, config) {
+  constructor(config) {
     this.config = config;
     initHlx();
 
