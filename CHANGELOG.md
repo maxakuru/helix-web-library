@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/dylandepass/helix-web-library/compare/v1.3.0...v1.3.1) (2022-04-08)
+
+
+### Bug Fixes
+
+* add forms to releases ([#12](https://github.com/dylandepass/helix-web-library/issues/12)) ([5caadf4](https://github.com/dylandepass/helix-web-library/commit/5caadf485c6dfffbb2acb1f6535971ec7aae84c0))
+
 # [1.3.0](https://github.com/dylandepass/helix-web-library/compare/v1.2.2...v1.3.0) (2022-04-08)
 
 
