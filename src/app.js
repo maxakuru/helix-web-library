@@ -32,10 +32,9 @@ import {
 export default class HelixApp {
   constructor(document, config) {
     this.config = config;
-    this.rumEnabled = false;
     initHlx();
 
-    if (this.rumEnabled) {
+    if (this.config.rumEnabled) {
       this.sampleRUM('top');
       window.addEventListener('load', () => sampleRUM('load'));
       document.addEventListener('click', () => sampleRUM('click'));

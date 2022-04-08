@@ -49,7 +49,7 @@ export function decorateBlock(block) {
  */
 export function decorateBlocks(main) {
   main
-    .querySelectorAll('div.section-wrapper > div > div')
+    .querySelectorAll('div.section > div > div')
     .forEach((block) => decorateBlock(block));
 }
 
