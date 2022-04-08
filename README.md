@@ -12,10 +12,10 @@
 
 ## Installation
 
-Can be added to a helix project either with npm or by downloading the directly from the releases on github
+Can be added to a helix project either with npm or by downloading the bundles directly from the releases page on github
 
 ### Github Release
-Download the non minified or minified version from the [releases page](https://github.com/dylandepass/helix-web-library/releases).
+Download the required bundles from the [releases page](https://github.com/dylandepass/helix-web-library/releases).
 
 ### NPM
 ```bash
@@ -24,7 +24,7 @@ $ npm install @dylandepass/helix-web-library
 
 ## Usage
 
-Two scripts are offered `helix-web-core` and `helix-web-framework`.
+The three scripts are offered `helix-web-core`, `helix-web-framework` and `helix-web-forms`.
 
 ### helix-web-core
 Includes [functions](docs/API.md) that can be used to aid in the decoration and loading of a helix page.
@@ -65,6 +65,14 @@ export class App extends HelixApp {
     super.loadDelayed();
     // Custom loadDelayed logic
   }
+
+  /**
+   * Builds all synthetic blocks in a container element.
+   * @param {Element} main The container element
+   */
+  buildAutoBlocks(main) { 
+    // Build synthetic blocks based on page template or path
+  }
 }
 
 /**
@@ -78,6 +86,36 @@ new App({
 ```
 
 See the [API documentation](docs/API.md).
+
+### helix-web-forms
+Creates an HTML form based on a form definiton defined in a sheet. The form definition should be contained in the `helix-default` sheet. No assumptions are made on the styling of the form as is left up to the developer to style the form markup.
+
+```js
+import { createForm } from 'helix-web-framework.esm.min.js';
+
+export default async function decorate(block) {
+  const form = block.querySelector('a[href$=".json"]');
+  if (form) {
+    form.replaceWith(await createForm(form.href));
+  }
+}
+```
+
+#### Supported form field definitions
+
+| Name        | Description                                                                                                 | Example                                                                                     |
+|-------------|-------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
+| Field       | The name of the field, will be set in the class name.                                                       | customerName                                                                                |
+| Label       | The field label                                                                                             | Customer Name                                                                               |
+| Placeholder | Placeholder text for the field                                                                              | Acme corp                                                                                   |
+| Type        | The field type. Currently supports `text-field`, `heading`, `select`, `text-area`                           | text-area                                                                                   |
+| Format      | The [input type](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#input_types) of the field. | password                                                                                    |
+| Mandatory   | Is this a required field?                                                                                   | x                                                                                           |
+| Options     | If field type is `select`, options are set here                                                             | Don't know, Yes, No                                                                         |
+| Rules       | Basic rules enginem, currently only supports `visible`                                                      | `{"type": "visible", "condition": {"key": "cms", "operator": "eq",  "value": "AEM Sites"}}` |
+| Extra       | Redirect path after submission                                                                              | `/thank-you`                                                                                |
+
+
 
 ## Development
 

@@ -16,6 +16,8 @@ module.exports = {
         { "path": "dist/helix-web-core-*.esm.min.js", "label": "Helix Web Core ESM (Minified)" },
         { "path": "dist/helix-web-framework-*.esm.js", "label": "Helix Web Framework ESM" },
         { "path": "dist/helix-web-framework-*.esm.min.js", "label": "Helix Web Framework ESM (Minified)" },
+        { "path": "dist/helix-web-forms-*.esm.js", "label": "Helix Web Forms ESM" },
+        { "path": "dist/helix-web-forms-*.esm.min.js", "label": "Helix Web Forms ESM (Minified)" },
       ]
     }]
   ],
