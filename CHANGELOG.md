@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/dylandepass/helix-web-library/compare/v1.3.1...v1.3.2) (2022-04-08)
+
+
+### Bug Fixes
+
+* pass document into app constructor ([#13](https://github.com/dylandepass/helix-web-library/issues/13)) ([dc2285e](https://github.com/dylandepass/helix-web-library/commit/dc2285e4e4240caf893aa4d7e315e4f425d9cdc4))
+
 ## [1.3.1](https://github.com/dylandepass/helix-web-library/compare/v1.3.0...v1.3.1) (2022-04-08)
 
 
