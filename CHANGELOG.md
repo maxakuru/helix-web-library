@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/dylandepass/helix-web-library/compare/v1.2.2...v1.3.0) (2022-04-08)
+
+
+### Features
+
+* sync with boilerplate, break into separate files based on areas of concern  ([#11](https://github.com/dylandepass/helix-web-library/issues/11)) ([e142bdd](https://github.com/dylandepass/helix-web-library/commit/e142bdd8fd8b8e819999141e8a0eac007db6e81c))
+
 ## [1.2.2](https://github.com/dylandepass/helix-web-library/compare/v1.2.1...v1.2.2) (2022-04-07)
 
 
