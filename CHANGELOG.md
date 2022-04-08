@@ -1,3 +1,10 @@
+## [1.3.4](https://github.com/dylandepass/helix-web-library/compare/v1.3.3...v1.3.4) (2022-04-08)
+
+
+### Bug Fixes
+
+* fix constructor ([#15](https://github.com/dylandepass/helix-web-library/issues/15)) ([6d90d59](https://github.com/dylandepass/helix-web-library/commit/6d90d59bb000279244698c23cf2b2a3d6fc28ea7))
+
 ## [1.3.3](https://github.com/dylandepass/helix-web-library/compare/v1.3.2...v1.3.3) (2022-04-08)
 
 
