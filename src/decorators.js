@@ -207,7 +207,7 @@ export function addFavIcon(href) {
  * @param {Element} main The container element
  * @preserve
  */
-export function makeLinksRelative(main, productionDomains) {
+export function makeLinksRelative(main, productionDomains = []) {
   main.querySelectorAll('a').forEach((a) => {
     // eslint-disable-next-line no-use-before-define
     const hosts = ['hlx.page', 'hlx.live', ...productionDomains];

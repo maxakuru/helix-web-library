@@ -30,7 +30,7 @@ import {
 } from './core.js';
 
 export default class HelixApp {
-  constructor(config) {
+  constructor(document, config) {
     this.config = config;
     this.rumEnabled = false;
     initHlx();
