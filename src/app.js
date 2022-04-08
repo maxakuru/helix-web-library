@@ -35,21 +35,27 @@ export default class HelixApp {
     this.rumEnabled = false;
     initHlx();
 
-    this.loadPage(document);
-
     if (this.rumEnabled) {
       this.sampleRUM('top');
       window.addEventListener('load', () => sampleRUM('load'));
       document.addEventListener('click', () => sampleRUM('click'));
     }
 
+    this.loadPage(document);
+
     if (window.name.includes('performance')) {
       registerPerformanceLogger();
     }
   }
 
-  sampleRUM(event) {
-    sampleRUM(event, this.config.rumGeneration);
+  /**
+   * log RUM if part of the sample.
+   * @param {string} checkpoint identifies the checkpoint in funnel
+   * @param {Object} data additional data for RUM sample
+   * @preserve
+   */
+  sampleRUM(event, data = {}) {
+    sampleRUM(event, this.config.rumGeneration, data);
   }
 
   /**
@@ -57,13 +63,6 @@ export default class HelixApp {
    */
   async loadPage(doc) {
     await this.loadEager(doc);
-
-    const main = doc.querySelector('main');
-    if (main) {
-      this.decorateMain(main);
-      await waitForLCP(this.config.lcpBlocks);
-    }
-
     await this.loadLazy(doc);
     this.loadDelayed(doc);
   }
@@ -73,7 +72,11 @@ export default class HelixApp {
    * Should be overridden by subclasses.
    */
   async loadEager(doc) {
-    return Promise.resolve(doc);
+    const main = doc.querySelector('main');
+    if (main) {
+      this.decorateMain(main);
+      await this.waitForLCP(this.config.lcpBlocks);
+    }
   }
 
   /**
@@ -83,8 +86,10 @@ export default class HelixApp {
   decorateMain(main) {
     // forward compatible pictures redecoration
     this.decoratePictures(main);
-    this.removeStylingFromImages(main);
+    // forward compatible link rewriting
     this.makeLinksRelative(main, this.config.productionDomains);
+    this.removeStylingFromImages(main);
+    this.buildAutoBlocks(main);
     this.decorateSections(main);
     this.decorateBlocks(main);
   }
@@ -100,21 +105,20 @@ export default class HelixApp {
     this.loadFooter(doc.querySelector('footer'));
 
     loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
+    addFavIcon(`${window.hlx.codeBasePath}/icon.svg`);
   }
 
   /**
    * loads everything that happens a lot later, without impacting
    * the user experience.
    */
-  loadDelayed() {
-    addFavIcon(`${window.hlx.codeBasePath}/icon.svg`);
-  }
+  loadDelayed() { }
 
   /**
-   *
-   * Override these methods to add custom behavior.
-   *
+   * Builds all synthetic blocks in a container element.
+   * @param {Element} main The container element
    */
+  buildAutoBlocks(_) { }
 
   /**
    * Loads the header block.
@@ -150,7 +154,7 @@ export default class HelixApp {
 
   /**
    * Decorates all sections in a container element.
-   * @param {Element} $main The container element
+   * @param {Element} main The container element
    */
   decorateSections(main) {
     decorateSections(main);
@@ -158,7 +162,7 @@ export default class HelixApp {
 
   /**
    * Decorates all blocks in a container element.
-   * @param {Element} $main The container element
+   * @param {Element} main The container element
    */
   decorateBlocks(main) {
     decorateBlocks(main);
@@ -170,5 +174,13 @@ export default class HelixApp {
    */
   decoratePictures(main) {
     decoratePictures(main);
+  }
+
+  /**
+   * load LCP block and/or wait for LCP in default content.
+   * @preserve
+   */
+  waitForLCP(lcpBlocks) {
+    return waitForLCP(lcpBlocks);
   }
 }
