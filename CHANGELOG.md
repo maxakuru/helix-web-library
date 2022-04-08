@@ -1,3 +1,10 @@
+## [1.3.3](https://github.com/dylandepass/helix-web-library/compare/v1.3.2...v1.3.3) (2022-04-08)
+
+
+### Bug Fixes
+
+* make inline with boilerplate ([#14](https://github.com/dylandepass/helix-web-library/issues/14)) ([5344ff9](https://github.com/dylandepass/helix-web-library/commit/5344ff93b0f1fa85b98e381e5e52d519cb9f97d4))
+
 ## [1.3.2](https://github.com/dylandepass/helix-web-library/compare/v1.3.1...v1.3.2) (2022-04-08)
 
 
