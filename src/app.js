@@ -10,7 +10,7 @@
  * governing permissions and limitations under the License.
  */
 
-/* eslint-disable class-methods-use-this */
+/* eslint-disable class-methods-use-this, max-classes-per-file */
 
 import {
   initHlx,
@@ -40,11 +40,62 @@ export default class HelixApp {
       document.addEventListener('click', () => sampleRUM('click'));
     }
 
-    this.loadPage(document);
-
     if (window.name.includes('performance')) {
       registerPerformanceLogger();
     }
+  }
+
+  static get Builder() {
+    class Builder {
+      constructor(config) {
+        this.config = config;
+      }
+
+      withLoadEager(override) {
+        HelixApp.prototype.loadEager = override;
+        return this;
+      }
+
+      withLoadLazy(override) {
+        HelixApp.prototype.loadLazyHook = override;
+        return this;
+      }
+
+      withLoadDelayed(override) {
+        HelixApp.prototype.loadDelayed = override;
+        return this;
+      }
+
+      withBuildAutoBlocks(override) {
+        HelixApp.prototype.buildAutoBlocks = override;
+        return this;
+      }
+
+      withLoadHeader(override) {
+        HelixApp.prototype.loadHeader = override;
+        return this;
+      }
+
+      withLoadFooter(override) {
+        HelixApp.prototype.loadFooter = override;
+        return this;
+      }
+
+      build() {
+        return new HelixApp(this.config);
+      }
+    }
+
+    return Builder;
+  }
+
+  /**
+    * Decorate the page
+    */
+  async decorate() {
+    await this.loadEager(document);
+    await this.loadLazy(document);
+    this.loadDelayed(document);
   }
 
   /**
@@ -58,15 +109,6 @@ export default class HelixApp {
   }
 
   /**
-   * Decorates the page.
-   */
-  async loadPage(doc) {
-    await this.loadEager(doc);
-    await this.loadLazy(doc);
-    this.loadDelayed(doc);
-  }
-
-  /**
    * loads everything needed to get to LCP.
    * Should be overridden by subclasses.
    */
@@ -76,6 +118,9 @@ export default class HelixApp {
       this.decorateMain(main);
       await this.waitForLCP(this.config.lcpBlocks);
     }
+    if (HelixApp.prototype.loadEagerHook) {
+      await HelixApp.prototype.loadEagerHook(doc);
+    }
   }
 
   /**
@@ -84,13 +129,13 @@ export default class HelixApp {
    */
   decorateMain(main) {
     // forward compatible pictures redecoration
-    this.decoratePictures(main);
+    decoratePictures(main);
     // forward compatible link rewriting
-    this.makeLinksRelative(main, this.config.productionDomains);
-    this.removeStylingFromImages(main);
+    makeLinksRelative(main, this.config.productionDomains);
+    removeStylingFromImages(main);
     this.buildAutoBlocks(main);
-    this.decorateSections(main);
-    this.decorateBlocks(main);
+    decorateSections(main);
+    decorateBlocks(main);
   }
 
   /**
@@ -105,6 +150,9 @@ export default class HelixApp {
 
     loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
     addFavIcon(`${window.hlx.codeBasePath}/icon.svg`);
+    if (HelixApp.prototype.loadLazyHook) {
+      HelixApp.prototype.loadLazyHook(doc);
+    }
   }
 
   /**
@@ -133,46 +181,6 @@ export default class HelixApp {
    */
   async loadFooter(footer) {
     loadFooter(footer, this.config.productionDomains);
-  }
-
-  /**
-   * Removes formatting from images.
-   * @param {Element} main The container element
-   */
-  removeStylingFromImages(main) {
-    removeStylingFromImages(main);
-  }
-
-  /**
-   * Turns absolute links within the domain into relative links.
-   * @param {Element} main The container element
-   */
-  makeLinksRelative(main, productionDomains) {
-    makeLinksRelative(main, productionDomains);
-  }
-
-  /**
-   * Decorates all sections in a container element.
-   * @param {Element} main The container element
-   */
-  decorateSections(main) {
-    decorateSections(main);
-  }
-
-  /**
-   * Decorates all blocks in a container element.
-   * @param {Element} main The container element
-   */
-  decorateBlocks(main) {
-    decorateBlocks(main);
-  }
-
-  /**
-   * Decorates the picture elements.
-   * @param {Element} main The container element
-   */
-  decoratePictures(main) {
-    decoratePictures(main);
   }
 
   /**

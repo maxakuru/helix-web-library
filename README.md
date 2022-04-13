@@ -32,6 +32,31 @@ Includes [functions](docs/API.md) that can be used to aid in the decoration and 
 ### helix-web-framework
 Includes the functions from `helix-web-core` along with a `HelixApp` class that abstracts the decoration and loading of a helix page. This class provides extension points for customization during the decoration process.
 
+Clients can either build and decorate pages using the provided builder or by extending from the `HelixApp` class.
+
+#### Using the builder
+
+```js
+new HelixApp.Builder({
+  rumEnabled: true,
+  rumGeneration: 'project-1',
+  productionDomains: ['acme.com'],
+  lcpBlocks: ['hero'],
+})
+  .withLoadEager(loadEager)
+  .withBuildAutoBlocks((main) => {
+    try {
+      buildHeroBlock(main);
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error('Auto Blocking failed', error);
+    }
+  })
+  .build()
+  .decorate();
+```
+
+#### By extending the HelixApp class
 ```js
 import { HelixApp } from './helix-web-framework.es.min.js';
 
@@ -78,11 +103,13 @@ export class App extends HelixApp {
 /**
  * Decorate Page
  */
-new App(document, {
+const helixPage = new App(document, {
   rumGeneration: 'design-website-1',
   productionDomains: ['adobe.design'],
   lcpBlocks: ['hero', 'carousel'],
 });
+
+helixPage.decorate();
 ```
 
 See the [API documentation](docs/API.md).
