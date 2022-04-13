@@ -1,3 +1,10 @@
+## [1.3.8](https://github.com/dylandepass/helix-web-library/compare/v1.3.7...v1.3.8) (2022-04-13)
+
+
+### Bug Fixes
+
+* absolute path to scripts and css ([#19](https://github.com/dylandepass/helix-web-library/issues/19)) ([5a7163c](https://github.com/dylandepass/helix-web-library/commit/5a7163c1b58944ace540f8b3817f6d55c8e7daa0))
+
 ## [1.3.7](https://github.com/dylandepass/helix-web-library/compare/v1.3.6...v1.3.7) (2022-04-13)
 
 
