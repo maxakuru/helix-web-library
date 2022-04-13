@@ -11,7 +11,6 @@
  */
 
 import { terser } from 'rollup-plugin-terser';
-import pkg from './package.json';
 
 const banner = `/*
  * Copyright ${new Date().getFullYear()} Adobe. All rights reserved.
@@ -32,7 +31,7 @@ const bundles = [
     outputFile: 'helix-web-core',
   },
   {
-    source: 'src/framework.js',
+    source: 'src/index.js',
     outputFile: 'helix-web-framework',
   },
   {
@@ -46,13 +45,13 @@ export default bundles.map((bundle) => ({
   inlineDynamicImports: true,
   output: [
     {
-      file: `dist/${bundle.outputFile}-${pkg.version}.esm.js`,
+      file: `dist/${bundle.outputFile}.esm.js`,
       format: 'es',
       sourcemap: false,
       exports: 'auto',
     },
     {
-      file: `dist/${bundle.outputFile}-${pkg.version}.esm.min.js`,
+      file: `dist/${bundle.outputFile}.esm.min.js`,
       format: 'es',
       sourcemap: false,
       exports: 'auto',
