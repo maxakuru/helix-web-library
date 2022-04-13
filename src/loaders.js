@@ -90,10 +90,11 @@ export async function loadBlock(block, eager = false) {
       const cssLoaded = new Promise((resolve) => {
         loadCSS(`/blocks/${blockName}/${blockName}.css`, resolve);
       });
+      console.log('Origin ', window.location.origin);
       const decorationComplete = new Promise((resolve) => {
         (async () => {
           try {
-            const mod = await import(`/blocks/${blockName}/${blockName}.js`);
+            const mod = await import(`${window.location.origin}/blocks/${blockName}/${blockName}.js`);
             if (mod.default) {
               await mod.default(block, blockName, document, eager);
             }
