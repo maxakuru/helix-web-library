@@ -1,3 +1,10 @@
+## [1.3.5](https://github.com/dylandepass/helix-web-library/compare/v1.3.4...v1.3.5) (2022-04-13)
+
+
+### Bug Fixes
+
+* remove version number from bundled output ([#16](https://github.com/dylandepass/helix-web-library/issues/16)) ([0b88ce5](https://github.com/dylandepass/helix-web-library/commit/0b88ce5fcd6186ac169ff7568ccc0dddf7935281))
+
 ## [1.3.4](https://github.com/dylandepass/helix-web-library/compare/v1.3.3...v1.3.4) (2022-04-08)
 
 
