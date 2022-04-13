@@ -52,7 +52,7 @@ export default class HelixApp {
       }
 
       withLoadEager(override) {
-        HelixApp.prototype.loadEager = override;
+        HelixApp.prototype.loadEagerHook = override;
         return this;
       }
 
