@@ -1,3 +1,10 @@
+## [1.3.6](https://github.com/dylandepass/helix-web-library/compare/v1.3.5...v1.3.6) (2022-04-13)
+
+
+### Bug Fixes
+
+* add/remove hooks and add builder ([#17](https://github.com/dylandepass/helix-web-library/issues/17)) ([683f1b8](https://github.com/dylandepass/helix-web-library/commit/683f1b8b673f8150c9b6cea33be21c0ed76c99ae))
+
 ## [1.3.5](https://github.com/dylandepass/helix-web-library/compare/v1.3.4...v1.3.5) (2022-04-13)
 
 
