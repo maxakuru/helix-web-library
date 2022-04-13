@@ -1,3 +1,10 @@
+## [1.3.7](https://github.com/dylandepass/helix-web-library/compare/v1.3.6...v1.3.7) (2022-04-13)
+
+
+### Bug Fixes
+
+* use absolute path when loading scripts in loadBlock ([#18](https://github.com/dylandepass/helix-web-library/issues/18)) ([cc6024a](https://github.com/dylandepass/helix-web-library/commit/cc6024a5e0b3bcb67f997865f6123c4f246968a9))
+
 ## [1.3.6](https://github.com/dylandepass/helix-web-library/compare/v1.3.5...v1.3.6) (2022-04-13)
 
 
