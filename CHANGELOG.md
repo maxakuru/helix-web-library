@@ -1,3 +1,10 @@
+## [1.3.9](https://github.com/dylandepass/helix-web-library/compare/v1.3.8...v1.3.9) (2022-04-13)
+
+
+### Bug Fixes
+
+* attempt to load absolute using window.location ([#20](https://github.com/dylandepass/helix-web-library/issues/20)) ([60e399e](https://github.com/dylandepass/helix-web-library/commit/60e399e2807366575b673e54c4d0f45ee05256a2))
+
 ## [1.3.8](https://github.com/dylandepass/helix-web-library/compare/v1.3.7...v1.3.8) (2022-04-13)
 
 
