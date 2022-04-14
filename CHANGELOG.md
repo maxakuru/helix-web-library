@@ -1,3 +1,10 @@
+## [1.3.13](https://github.com/dylandepass/helix-web-library/compare/v1.3.12...v1.3.13) (2022-04-14)
+
+
+### Bug Fixes
+
+* remove prototype override ([4b3f7e6](https://github.com/dylandepass/helix-web-library/commit/4b3f7e67ea557427f186726eccd6d3e13a6cf6a3))
+
 ## [1.3.12](https://github.com/dylandepass/helix-web-library/compare/v1.3.11...v1.3.12) (2022-04-14)
 
 
