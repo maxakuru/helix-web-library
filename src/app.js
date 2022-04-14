@@ -174,8 +174,8 @@ export default class HelixApp {
       this.decorateMain(main);
       await this.waitForLCP(this.config.lcpBlocks);
     }
-    if (HelixApp.prototype.loadEagerHook) {
-      await HelixApp.prototype.loadEagerHook(doc);
+    if (this.loadEagerHook) {
+      await this.loadEagerHook(doc);
     }
   }
 
@@ -191,8 +191,8 @@ export default class HelixApp {
 
     loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
     addFavIcon(`${window.hlx.codeBasePath}/icon.svg`);
-    if (HelixApp.prototype.loadLazyHook) {
-      HelixApp.prototype.loadLazyHook(doc);
+    if (this.loadLazyHook) {
+      this.loadLazyHook(doc);
     }
   }
 
