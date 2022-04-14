@@ -18,15 +18,12 @@ import {
   sampleRUM,
   loadHeader,
   loadFooter,
-  decorateBlocks,
   loadBlocks,
   makeLinksRelative,
   loadCSS,
   addFavIcon,
-  decorateSections,
-  decoratePictures,
-  removeStylingFromImages,
   registerPerformanceLogger,
+  decorateMain,
 } from './core.js';
 
 export default class HelixApp {
@@ -45,48 +42,56 @@ export default class HelixApp {
     }
   }
 
-  static get Builder() {
-    class Builder {
-      constructor(config) {
-        this.config = config;
-      }
+  static init(config) {
+    return new HelixApp(config);
+  }
 
-      withLoadEager(override) {
-        HelixApp.prototype.loadEagerHook = override;
-        return this;
-      }
+  /**
+  * Hook into the end of loadEager function.
+  */
+  withLoadEager(override) {
+    this.loadEagerHook = override;
+    return this;
+  }
 
-      withLoadLazy(override) {
-        HelixApp.prototype.loadLazyHook = override;
-        return this;
-      }
+  /**
+  * Hook into the end of loadLazy function.
+  */
+  withLoadLazy(override) {
+    this.loadLazyHook = override;
+    return this;
+  }
 
-      withLoadDelayed(override) {
-        HelixApp.prototype.loadDelayed = override;
-        return this;
-      }
+  /**
+  * Overrides the loadDelayed function.
+  */
+  withLoadDelayed(override) {
+    this.loadDelayed = override;
+    return this;
+  }
 
-      withBuildAutoBlocks(override) {
-        HelixApp.prototype.buildAutoBlocks = override;
-        return this;
-      }
+  /**
+  * Overrides the buildAutoBlocks function.
+  */
+  withBuildAutoBlocks(override) {
+    this.buildAutoBlocks = override;
+    return this;
+  }
 
-      withLoadHeader(override) {
-        HelixApp.prototype.loadHeader = override;
-        return this;
-      }
+  /**
+  * Overrides the loadHeader function.
+  */
+  withLoadHeader(override) {
+    this.loadHeader = override;
+    return this;
+  }
 
-      withLoadFooter(override) {
-        HelixApp.prototype.loadFooter = override;
-        return this;
-      }
-
-      build() {
-        return new HelixApp(this.config);
-      }
-    }
-
-    return Builder;
+  /**
+  * Overrides the loadFooter function.
+  */
+  withLoadFooter(override) {
+    this.loadFooter = override;
+    return this;
   }
 
   /**
@@ -115,27 +120,14 @@ export default class HelixApp {
   async loadEager(doc) {
     const main = doc.querySelector('main');
     if (main) {
-      this.decorateMain(main);
+      this.buildAutoBlocks(main);
+      decorateMain(main);
+      makeLinksRelative(main, this.config.productionDomains);
       await this.waitForLCP(this.config.lcpBlocks);
     }
     if (HelixApp.prototype.loadEagerHook) {
       await HelixApp.prototype.loadEagerHook(doc);
     }
-  }
-
-  /**
-   * Decorates the main element.
-   * @param {Element} main The main element
-   */
-  decorateMain(main) {
-    // forward compatible pictures redecoration
-    decoratePictures(main);
-    // forward compatible link rewriting
-    makeLinksRelative(main, this.config.productionDomains);
-    removeStylingFromImages(main);
-    this.buildAutoBlocks(main);
-    decorateSections(main);
-    decorateBlocks(main);
   }
 
   /**

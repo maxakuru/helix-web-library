@@ -31,7 +31,8 @@ export function initHlx() {
   const scriptEl = document.querySelector('script[src$="/scripts/scripts.js"]');
   if (scriptEl) {
     try {
-      [window.hlx.codeBasePath] = new URL(scriptEl.src).pathname.split('/scripts/scripts.js');
+      // relative path does not work when the script is loaded from a different origin
+      window.hlx.codeBasePath = new URL(scriptEl.src).href.replace('/scripts/scripts.js', '');
     } catch (e) {
       // eslint-disable-next-line no-console
       console.log(e);
