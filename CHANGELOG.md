@@ -1,3 +1,10 @@
+## [1.3.11](https://github.com/dylandepass/helix-web-library/compare/v1.3.10...v1.3.11) (2022-04-14)
+
+
+### Bug Fixes
+
+* rework HelixApp ([67e5863](https://github.com/dylandepass/helix-web-library/commit/67e58637f976fcb395af08483e6f93b0d9d90c4d))
+
 ## [1.3.10](https://github.com/dylandepass/helix-web-library/compare/v1.3.9...v1.3.10) (2022-04-13)
 
 
