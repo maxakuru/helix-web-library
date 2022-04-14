@@ -23,7 +23,10 @@ import {
   loadCSS,
   addFavIcon,
   registerPerformanceLogger,
-  decorateMain,
+  decorateSections,
+  decorateBlock,
+  decoratePictures,
+  removeStylingFromImages,
 } from './core.js';
 
 export default class HelixApp {
@@ -47,60 +50,108 @@ export default class HelixApp {
   }
 
   /**
-  * Hook into the end of loadEager function.
-  */
+   * Hook into the end of loadEager function.
+   */
   withLoadEager(override) {
     this.loadEagerHook = override;
     return this;
   }
 
   /**
-  * Hook into the end of loadLazy function.
-  */
+   * Hook into the end of loadLazy function.
+   */
   withLoadLazy(override) {
     this.loadLazyHook = override;
     return this;
   }
 
   /**
-  * Overrides the loadDelayed function.
-  */
+   * Overrides the loadDelayed function.
+   */
   withLoadDelayed(override) {
     this.loadDelayed = override;
     return this;
   }
 
   /**
-  * Overrides the buildAutoBlocks function.
-  */
+   * Overrides the buildAutoBlocks function.
+   */
   withBuildAutoBlocks(override) {
     this.buildAutoBlocks = override;
     return this;
   }
 
   /**
-  * Overrides the loadHeader function.
-  */
+   * Overrides the loadHeader function.
+   */
   withLoadHeader(override) {
     this.loadHeader = override;
     return this;
   }
 
   /**
-  * Overrides the loadFooter function.
-  */
+   * Overrides the loadFooter function.
+   */
   withLoadFooter(override) {
     this.loadFooter = override;
     return this;
   }
 
   /**
-    * Decorate the page
-    */
+   * Overrides the decorateSections function.
+   */
+  withDecorateSections(override) {
+    this.decorateSections = override;
+    return this;
+  }
+
+  /**
+  * Overrides the decorateSections function.
+  */
+  withDecorateBlocks(override) {
+    this.decorateBlocks = override;
+    return this;
+  }
+
+  /**
+   * Overrides the decorateSections function.
+   */
+  withDecorateBlock(override) {
+    this.decorateBlock = override;
+    return this;
+  }
+
+  /**
+   * Decorate the page
+   */
   async decorate() {
     await this.loadEager(document);
     await this.loadLazy(document);
     this.loadDelayed(document);
+  }
+
+  /**
+   * Decorates all blocks in a container element.
+   * @param {Element} main The container element
+   * @preserve
+   */
+  decorateBlocks(main) {
+    main
+      .querySelectorAll('div.section > div > div')
+      .forEach((block) => this.decorateBlock(block));
+  }
+
+  /**
+   * Decorates the main element.
+   * @param {Element} main The main element
+   */
+  decorateMain(main) {
+    decoratePictures(main);
+    removeStylingFromImages(main);
+    makeLinksRelative(main, this.config.productionDomains);
+    this.buildAutoBlocks(main);
+    this.decorateSections(main);
+    this.decorateBlocks(main);
   }
 
   /**
@@ -120,9 +171,7 @@ export default class HelixApp {
   async loadEager(doc) {
     const main = doc.querySelector('main');
     if (main) {
-      this.buildAutoBlocks(main);
-      decorateMain(main);
-      makeLinksRelative(main, this.config.productionDomains);
+      this.decorateMain(main);
       await this.waitForLCP(this.config.lcpBlocks);
     }
     if (HelixApp.prototype.loadEagerHook) {
@@ -173,6 +222,24 @@ export default class HelixApp {
    */
   async loadFooter(footer) {
     loadFooter(footer, this.config.productionDomains);
+  }
+
+  /**
+   * Decorates all sections in a container element.
+   * @param {Element} main The container element
+   * @preserve
+   */
+  decorateSections(main) {
+    decorateSections(main);
+  }
+
+  /**
+   * Decorates a block.
+   * @param {Element} block The block element
+   * @preserve
+   */
+  decorateBlock(main) {
+    decorateBlock(main);
   }
 
   /**

@@ -10,7 +10,7 @@
  * governing permissions and limitations under the License.
  */
 
-import { createOptimizedPicture, removeStylingFromImages } from './images.js';
+import { createOptimizedPicture } from './images.js';
 
 /* eslint-disable no-param-reassign */
 
@@ -223,15 +223,4 @@ export function makeLinksRelative(main, productionDomains = []) {
       }
     }
   });
-}
-
-/**
- * Decorates the main element.
- * @param {Element} main The main element
- */
-export function decorateMain(main) {
-  decoratePictures(main);
-  removeStylingFromImages(main);
-  decorateSections(main);
-  decorateBlocks(main);
 }

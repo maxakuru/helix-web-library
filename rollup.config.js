@@ -27,12 +27,8 @@ const banner = `/*
 
 const bundles = [
   {
-    source: 'src/core.js',
-    outputFile: 'helix-web-core',
-  },
-  {
     source: 'src/index.js',
-    outputFile: 'helix-web-framework',
+    outputFile: 'helix-web-library',
   },
   {
     source: 'src/components/form/index.js',
