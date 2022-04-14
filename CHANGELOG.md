@@ -1,3 +1,10 @@
+## [1.3.12](https://github.com/dylandepass/helix-web-library/compare/v1.3.11...v1.3.12) (2022-04-14)
+
+
+### Bug Fixes
+
+* more extension points.. remove core bundle ([e151d34](https://github.com/dylandepass/helix-web-library/commit/e151d346fa6e8a4c06ace2e231fbf828fc655d3d))
+
 ## [1.3.11](https://github.com/dylandepass/helix-web-library/compare/v1.3.10...v1.3.11) (2022-04-14)
 
 
