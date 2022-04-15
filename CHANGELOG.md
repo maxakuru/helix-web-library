@@ -1,3 +1,10 @@
+## [1.3.14](https://github.com/dylandepass/helix-web-library/compare/v1.3.13...v1.3.14) (2022-04-15)
+
+
+### Bug Fixes
+
+* set default config value ([0e3cf43](https://github.com/dylandepass/helix-web-library/commit/0e3cf43f7bbe33b7fade8bd0d3447c9df7f1fc5b))
+
 ## [1.3.13](https://github.com/dylandepass/helix-web-library/compare/v1.3.12...v1.3.13) (2022-04-14)
 
 
