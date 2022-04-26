@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/dylandepass/helix-web-library/compare/v1.4.0...v1.4.1) (2022-04-26)
+
+
+### Bug Fixes
+
+* set default value for lcpBlocks ([7db8a19](https://github.com/dylandepass/helix-web-library/commit/7db8a19afa2112d11c336a40260c9822d5bb87f4))
+
 # [1.4.0](https://github.com/dylandepass/helix-web-library/compare/v1.3.14...v1.4.0) (2022-04-26)
 
 
