@@ -178,7 +178,7 @@ export default class HelixApp {
     const main = doc.querySelector('main');
     if (main) {
       this.decorateMain(main);
-      await this.waitForLCP(this.config.lcpBlocks);
+      await this.waitForLCP(this.config.lcpBlocks ?? []);
     }
     if (this.loadEagerHook) {
       await this.loadEagerHook(doc);
