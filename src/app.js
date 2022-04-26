@@ -29,7 +29,13 @@ import {
   removeStylingFromImages,
 } from './core.js';
 
+/**
+ * aliases
+ * @typedef {import("./types").AppConfig} AppConfig
+ */
+
 export default class HelixApp {
+  /** @param {AppConfig} config */
   constructor(config = {}) {
     this.config = config;
     initHlx();
@@ -137,7 +143,7 @@ export default class HelixApp {
    */
   decorateBlocks(main) {
     main
-      .querySelectorAll('div.section > div > div')
+      .querySelectorAll(this.config.blocksSelector ?? 'div.section > div > div')
       .forEach((block) => this.decorateBlock(block));
   }
 
