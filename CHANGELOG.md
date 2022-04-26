@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/dylandepass/helix-web-library/compare/v1.3.14...v1.4.0) (2022-04-26)
+
+
+### Features
+
+* block selector config, AppConfig types ([638d316](https://github.com/dylandepass/helix-web-library/commit/638d316c4a3064f1ea71b3b4c1cfe4ec0405ff27))
+
 ## [1.3.14](https://github.com/dylandepass/helix-web-library/compare/v1.3.13...v1.3.14) (2022-04-15)
 
 
