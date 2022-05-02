@@ -11,13 +11,35 @@
  */
 
 export interface AppConfig {
+  /**
+   * Should links be made relative?
+   * 
+   * Default: True
+   */
+  makeLinksRelative: boolean;
+
+  /**
+   * Enable RUM collection?
+   */
   rumEnabled: boolean;
 
+  /**
+   * RUM Generation
+   */
   rumGeneration: string;
 
+  /**
+   * Selector used to select blocks
+   */
   blocksSelector: string;
 
+  /**
+   * Production domains associated with the site
+   */
   productionDomains: string[];
 
+  /**
+   * List of blocks to treat as LCP
+   */
   lcpBlocks: string[];
 }

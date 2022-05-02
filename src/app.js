@@ -29,6 +29,10 @@ import {
   removeStylingFromImages,
 } from './core.js';
 
+const defaultConfig = {
+  makeLinksRelative: true,
+};
+
 /**
  * aliases
  * @typedef {import("./types").AppConfig} AppConfig
@@ -36,7 +40,7 @@ import {
 
 export default class HelixApp {
   /** @param {AppConfig} config */
-  constructor(config = {}) {
+  constructor(config = defaultConfig) {
     this.config = config;
     initHlx();
 
@@ -154,7 +158,9 @@ export default class HelixApp {
   decorateMain(main) {
     decoratePictures(main);
     removeStylingFromImages(main);
-    makeLinksRelative(main, this.config.productionDomains);
+    if (this.config.makeLinksRelative ?? defaultConfig.makeLinksRelative) {
+      makeLinksRelative(main, this.config.productionDomains);
+    }
     this.buildAutoBlocks(main);
     this.decorateSections(main);
     this.decorateBlocks(main);
