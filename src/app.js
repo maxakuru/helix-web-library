@@ -31,6 +31,7 @@ import {
 
 const defaultConfig = {
   makeLinksRelative: true,
+  lazyStyles: false,
 };
 
 /**
@@ -201,7 +202,10 @@ export default class HelixApp {
     this.loadHeader(doc.querySelector('header'));
     this.loadFooter(doc.querySelector('footer'));
 
-    loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
+    if (this.config.lazyStyles ?? defaultConfig.lazyStyles) {
+      loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
+    }
+
     addFavIcon(`${window.hlx.codeBasePath}/icon.svg`);
     if (this.loadLazyHook) {
       this.loadLazyHook(doc);

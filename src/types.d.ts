@@ -42,4 +42,9 @@ export interface AppConfig {
    * List of blocks to treat as LCP
    */
   lcpBlocks: string[];
+
+  /**
+   * Load lazy styles
+   */
+  lazyStyles: boolean;
 }
