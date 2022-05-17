@@ -12,10 +12,16 @@
 
 ## Installation
 
-Can be added to a helix project either with npm or by downloading the bundles directly from the releases page on github
+Can be added to a helix project either with by downloading the bundles directly from the releases page on github, using a cloud bundler like skypack or using npm (requires a build step).
 
 ### Github Release
 Download the required bundles from the [releases page](https://github.com/dylandepass/helix-web-library/releases).
+
+### Skypack Release
+[Helix Web Framework ESM](https://cdn.skypack.dev/@dylandepass/helix-web-library@latest/dist/helix-web-library.esm.js)
+[Helix Web Framework ESM (Minified)](https://cdn.skypack.dev/@dylandepass/helix-web-library@latest/dist/helix-web-library.esm.min.js)
+[Helix Web Forms ESM](https://cdn.skypack.dev/@dylandepass/helix-web-library@latest/dist/helix-web-forms.esm.js)
+[Helix Web Forms ESM (Minified)](https://cdn.skypack.dev/@dylandepass/helix-web-library@latest/dist/helix-web-forms.esm.min.js)
 
 ### NPM
 ```bash
