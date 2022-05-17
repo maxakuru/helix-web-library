@@ -22,7 +22,7 @@ Download the required bundles from the [releases page](https://github.com/dyland
 $ npm install @dylandepass/helix-web-library
 ```
 
-## Usage
+## What's included?
 
 The two scripts included are `helix-web-framework` and `helix-web-forms`.
 
@@ -78,7 +78,7 @@ These lifecycle hooks can be used to tie custom logic into the page loading flow
 | `withLoadLazy` | Called just after all blocks have been loaded (js/css) |
 | `withLoadDelayed` | Called after the page load lifecycle has completed |
 
-#### Lifecycle overrides
+#### Decoration/Loading overrides
 If you need to customize the page decoration the following overrides are available.
 
 | Hooks        | Description                                                                                                 | 
@@ -92,6 +92,9 @@ If you need to customize the page decoration the following overrides are availab
 See the [API documentation](docs/API.md).
 
 ### helix-web-forms
+
+> This is a pre-alpha and and mainly just an experiment.. Not meant for production use
+
 Creates an HTML form based on a form definiton defined in a sheet. The form definition should be contained in the `helix-default` sheet. No assumptions are made on the styling of the form as is left up to the developer to style the form markup.
 
 ```js
