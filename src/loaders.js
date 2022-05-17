@@ -190,14 +190,17 @@ export async function loadFooter(footer, productionDomains) {
  * load LCP block and/or wait for LCP in default content.
  * @preserve
  */
-export async function waitForLCP(LCP_BLOCKS) {
+export async function waitForLCP(LCP_BLOCKS, autoAppear) {
   // eslint-disable-next-line no-use-before-define
   const lcpBlocks = LCP_BLOCKS;
   const block = document.querySelector('.block');
   const hasLCPBlock = (block && lcpBlocks.includes(block.getAttribute('data-block-name')));
   if (hasLCPBlock) await loadBlock(block, true);
 
-  document.querySelector('body').classList.add('appear');
+  if (autoAppear) {
+    document.querySelector('body').classList.add('appear');
+  }
+
   const lcpCandidate = document.querySelector('main img');
   await new Promise((resolve) => {
     if (lcpCandidate && !lcpCandidate.complete) {

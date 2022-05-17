@@ -32,6 +32,7 @@ import {
 const defaultConfig = {
   makeLinksRelative: true,
   lazyStyles: false,
+  autoAppear: true,
 };
 
 /**
@@ -274,6 +275,6 @@ export default class HelixApp {
    * @preserve
    */
   waitForLCP(lcpBlocks) {
-    return waitForLCP(lcpBlocks);
+    return waitForLCP(lcpBlocks, this.config.autoAppear ?? defaultConfig.autoAppear);
   }
 }

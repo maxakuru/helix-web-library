@@ -47,4 +47,9 @@ export interface AppConfig {
    * Load lazy styles
    */
   lazyStyles: boolean;
+
+  /**
+   * Auto appear after lcp load
+   */
+  autoAppear: boolean;
 }
