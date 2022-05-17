@@ -1,3 +1,10 @@
+## [1.4.3](https://github.com/dylandepass/helix-web-library/compare/v1.4.2...v1.4.3) (2022-05-17)
+
+
+### Bug Fixes
+
+* don't load lazy styles by default ([3404755](https://github.com/dylandepass/helix-web-library/commit/3404755b50b9f0448c0dfaf6115ed33d4bf42fa1))
+
 ## [1.4.2](https://github.com/dylandepass/helix-web-library/compare/v1.4.1...v1.4.2) (2022-05-02)
 
 
