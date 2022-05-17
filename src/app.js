@@ -118,14 +118,6 @@ export default class HelixApp {
   }
 
   /**
-  * Overrides the decorateSections function.
-  */
-  withDecorateBlocks(override) {
-    this.decorateBlocks = override;
-    return this;
-  }
-
-  /**
    * Overrides the decorateSections function.
    */
   withDecorateBlock(override) {
