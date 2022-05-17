@@ -1,3 +1,10 @@
+## [1.5.2](https://github.com/dylandepass/helix-web-library/compare/v1.5.1...v1.5.2) (2022-05-17)
+
+
+### Bug Fixes
+
+* make autoAppear customizable ([40fd9fd](https://github.com/dylandepass/helix-web-library/commit/40fd9fda64e08455abdf5e740c1be2fde759bf4e))
+
 ## [1.5.1](https://github.com/dylandepass/helix-web-library/compare/v1.5.0...v1.5.1) (2022-05-17)
 
 
