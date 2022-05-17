@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/dylandepass/helix-web-library/compare/v1.4.3...v1.5.0) (2022-05-17)
+
+
+### Features
+
+* add withPostDecorateBlockHook ([2748bc6](https://github.com/dylandepass/helix-web-library/commit/2748bc677b797c3c03966dd2d3510a476af9bda0))
+
 ## [1.4.3](https://github.com/dylandepass/helix-web-library/compare/v1.4.2...v1.4.3) (2022-05-17)
 
 
