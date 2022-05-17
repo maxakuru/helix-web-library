@@ -16,7 +16,7 @@
  * log RUM if part of the sample.
  * @param {string} checkpoint identifies the checkpoint in funnel
  * @param {Object} data additional data for RUM sample
- * @preserve
+ * @preserve Exclude from terser
  */
 export function sampleRUM(checkpoint, generation, data = {}) {
   try {

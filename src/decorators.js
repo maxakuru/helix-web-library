@@ -17,7 +17,7 @@ import { createOptimizedPicture } from './images.js';
 /**
  * Decorates a block.
  * @param {Element} block The block element
- * @preserve
+ * @preserve Exclude from terser
  */
 export function decorateBlock(block) {
   const trimDashes = (str) => str.replace(/(^\s*-)|(-\s*$)/g, '');
@@ -45,7 +45,7 @@ export function decorateBlock(block) {
 /**
  * Decorates all blocks in a container element.
  * @param {Element} main The container element
- * @preserve
+ * @preserve Exclude from terser
  */
 export function decorateBlocks(main) {
   main
@@ -57,7 +57,7 @@ export function decorateBlocks(main) {
  * Sanitizes a name for use as class name.
  * @param {*} name The unsanitized name
  * @returns {string} The class name
- * @preserve
+ * @preserve Exclude from terser
  */
 export function toClassName(name) {
   return name && typeof name === 'string'
@@ -69,7 +69,7 @@ export function toClassName(name) {
  * Extracts the config from a block.
  * @param {Element} block The block element
  * @returns {object} The block config
- * @preserve
+ * @preserve Exclude from terser
  */
 export function readBlockConfig(block) {
   const config = {};
@@ -105,7 +105,7 @@ export function readBlockConfig(block) {
 /**
  * Decorates all sections in a container element.
  * @param {Element} main The container element
- * @preserve
+ * @preserve Exclude from terser
  */
 export function decorateSections(main) {
   main.querySelectorAll(':scope > div').forEach((section) => {
@@ -141,7 +141,7 @@ export function decorateSections(main) {
 /**
  * Decorates the picture elements.
  * @param {Element} main The container element
- * @preserve
+ * @preserve Exclude from terser
  */
 export function decoratePictures(main) {
   main.querySelectorAll('img[src*="/media_"').forEach((img, i) => {
@@ -159,7 +159,7 @@ export function decoratePictures(main) {
  * Normalizes all headings within a container element.
  * @param {Element} elem The container element
  * @param {string[]} allowedHeadings The list of allowed headings (h1 ... h6)
- * @preserve
+ * @preserve Exclude from terser
  */
 export function normalizeHeadings(elem, allowedHeadings) {
   const allowed = allowedHeadings.map((h) => h.toLowerCase());
@@ -187,7 +187,7 @@ export function normalizeHeadings(elem, allowedHeadings) {
 /**
  * Adds the favicon.
  * @param {string} href The favicon URL
- * @preserve
+ * @preserve Exclude from terser
  */
 export function addFavIcon(href) {
   const link = document.createElement('link');
@@ -205,7 +205,7 @@ export function addFavIcon(href) {
 /**
  * Turns absolute links within the domain into relative links.
  * @param {Element} main The container element
- * @preserve
+ * @preserve Exclude from terser
  */
 export function makeLinksRelative(main, productionDomains = []) {
   main.querySelectorAll('a').forEach((a) => {

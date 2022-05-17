@@ -24,15 +24,15 @@ $ npm install @dylandepass/helix-web-library
 
 ## Usage
 
-The three scripts are offered `helix-web-core`, `helix-web-framework` and `helix-web-forms`.
+The three scripts are offered `helix-web-framework` and `helix-web-forms`.
 
 ### helix-web-core
 Includes [functions](docs/API.md) that can be used to aid in the decoration and loading of a helix page.
 
 ### helix-web-framework
-Includes the functions from `helix-web-core` along with a `HelixApp` class that abstracts the decoration and loading of a helix page. This class provides extension points for customization during the decoration process.
+Includes a `HelixApp` class that abstracts the decoration and loading of a helix page. This class provides extension points for customization during the decoration process.
 
-Clients can either build and decorate pages using the provided builder or by extending from the `HelixApp` class.
+Clients can decorate pages using the provided `HelixApp` builder class.
 
 #### Using the builder
 
@@ -56,61 +56,40 @@ new HelixApp.Builder({
   .decorate();
 ```
 
-#### By extending the HelixApp class
-```js
-import { HelixApp } from './helix-web-framework.es.min.js';
+##### Builder Options
+Builder configuration options 
 
-export class App extends HelixApp {
-  constructor(config) {
-    super(config);
-  }
+| Name        | Description                                             | Example                        | Default           |
+|-------------|---------------------------------------------------------|--------------------------------|-------------------|
+| rumEnabled       | Enable RUM collection?   | true                   | false                       |
+| rumGeneration       | RUM generation id   |  'project-1'                  | undefined                       |
+| productionDomains       | A list of productions domains, used when `makeLinksRelative` is true.  | ['acme.com']                   | []                       |
+| lcpBlocks       | List of blocks classes to treat as LCP   | ['hero']                   | []                       |
+| autoAppear       | Should we set the appear class on the body after LCP load? If false then client must add the appear class (`document.querySelector('body').classList.add('appear');`)   | true                   | true                       |
+| blocksSelector       | The CSS selector used to query blocks   | ':scope > div > div'                   | 'div.section > div > div'                       |
+| makeLinksRelative       | Should anchor tag links be made relative?   | true                   | true                       |
+| lazyStyles       | Should lazy styles be loaded (`/styles/lazy-styles.css`)   | true                    | false                       |
 
-  /**
-   * loads everything that doesn't need to be delayed.
-   */
-  async loadLazy(doc) {
-    super.loadLazy();
-    // Custom loadLazy logic
-  }
+#### Lifecycle hooks
+These lifecycle hooks can be used to tie custom logic into the page loading flow.
 
+| Hooks        | Description                                                                                                 | 
+|-------------|-------------------------------------------------------------------------------------------------------------|
+| `withLoadEager` | Called just after main is decorated and LCP is loaded |
+| `withPostDecorateBlockHook` | Called after block decoration and before waitForLCP. |
+| `withLoadLazy` | Called just after all blocks have been loaded (js/css) |
+| `withLoadDelayed` | Called after the page load lifecycle has completed |
 
-  /**
-   * load everything needed to get to LCP.
-   */
-  async loadEager() {
-    super.loadDelayed();
-    // Custom loadEager logic
-  }
+#### Lifecycle overrides
+If you need to customize the page decoration the following overrides are available.
 
-  /**
-   * load everything that happens a lot later, without impacting
-   * the user experience.
-   */
-  loadDelayed() {
-    super.loadDelayed();
-    // Custom loadDelayed logic
-  }
-
-  /**
-   * Builds all synthetic blocks in a container element.
-   * @param {Element} main The container element
-   */
-  buildAutoBlocks(main) { 
-    // Build synthetic blocks based on page template or path
-  }
-}
-
-/**
- * Decorate Page
- */
-const helixPage = new App(document, {
-  rumGeneration: 'design-website-1',
-  productionDomains: ['adobe.design'],
-  lcpBlocks: ['hero', 'carousel'],
-});
-
-helixPage.decorate();
-```
+| Hooks        | Description                                                                                                 | 
+|-------------|-------------------------------------------------------------------------------------------------------------|
+| `withBuildAutoBlocks` | Add any logic required to build auto blocks here |
+| `withDecorateSections` | Overrides the default decorate sections logic |
+| `withDecorateBlock` | Overrides the default decorate block logic |
+| `withLoadHeader` | Overrides the default load header logic |
+| `withLoadFooter` | Overrides the default load footer logic |
 
 See the [API documentation](docs/API.md).
 

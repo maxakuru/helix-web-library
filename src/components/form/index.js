@@ -135,7 +135,7 @@ function applyRules(form, rules) {
 /**
  * Generates a form from a form definition in a sheet.
  * @param {string} formURL The url to the form definition
- * @preserve
+ * @preserve Exclude from terser
  */
 export async function createForm(formURL) {
   const { pathname } = new URL(formURL);

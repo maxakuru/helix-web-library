@@ -21,7 +21,7 @@ export * from './performance.js';
 
 /**
  * Initializes helix
- * @preserve
+ * @preserve Exclude from terser
  */
 export function initHlx() {
   window.hlx = window.hlx || {};
@@ -43,7 +43,7 @@ export function initHlx() {
 /**
  * Adds one or more URLs to the dependencies for publishing.
  * @param {string|string[]} url The URL(s) to add as dependencies
- * @preserve
+ * @preserve Exclude from terser
  */
 export function addPublishDependencies(url) {
   const urls = Array.isArray(url) ? url : [url];

@@ -36,8 +36,15 @@ const defaultConfig = {
 };
 
 /**
- * aliases
- * @typedef {import("./types").AppConfig} AppConfig
+ * @typedef {object} AppConfig
+ * @property {boolean} makeLinksRelative
+ * @property {boolean} rumEnabled
+ * @property {string} rumGeneration
+ * @property {string} blocksSelector
+ * @property {string[]} productionDomains
+ * @property {string[]} lcpBlocks
+ * @property {boolean} lazyStyles
+ * @property {boolean} autoAppear
  */
 
 export default class HelixApp {
@@ -145,7 +152,7 @@ export default class HelixApp {
   /**
    * Decorates all blocks in a container element.
    * @param {Element} main The container element
-   * @preserve
+   * @preserve Exclude from terser
    */
   decorateBlocks(main) {
     main
@@ -175,7 +182,7 @@ export default class HelixApp {
    * log RUM if part of the sample.
    * @param {string} checkpoint identifies the checkpoint in funnel
    * @param {Object} data additional data for RUM sample
-   * @preserve
+   * @preserve Exclude from terser
    */
   sampleRUM(event, data = {}) {
     sampleRUM(event, this.config.rumGeneration, data);
@@ -247,7 +254,7 @@ export default class HelixApp {
   /**
    * Decorates all sections in a container element.
    * @param {Element} main The container element
-   * @preserve
+   * @preserve Exclude from terser
    */
   decorateSections(main) {
     decorateSections(main);
@@ -256,7 +263,7 @@ export default class HelixApp {
   /**
    * Decorates a block.
    * @param {Element} block The block element
-   * @preserve
+   * @preserve Exclude from terser
    */
   decorateBlock(main) {
     decorateBlock(main);
@@ -264,7 +271,7 @@ export default class HelixApp {
 
   /**
    * load LCP block and/or wait for LCP in default content.
-   * @preserve
+   * @preserve Exclude from terser
    */
   waitForLCP(lcpBlocks) {
     return waitForLCP(lcpBlocks, this.config.autoAppear ?? defaultConfig.autoAppear);

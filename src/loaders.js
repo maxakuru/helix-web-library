@@ -20,7 +20,7 @@ import { decorateBlock, makeLinksRelative } from './decorators.js';
  * @param {Function} callback callback on load
  * @param {string} type type attribute of script tag
  * @returns {Element} script element
- * @preserve
+ * @preserve Exclude from terser
  */
 
 export function loadScript(url, callback, type) {
@@ -38,7 +38,7 @@ export function loadScript(url, callback, type) {
 /**
  * Loads a CSS file.
  * @param {string} href The path to the CSS file
- * @preserve
+ * @preserve Exclude from terser
  */
 export function loadCSS(href, callback) {
   if (!document.querySelector(`head > link[href="${href}"]`)) {
@@ -58,7 +58,7 @@ export function loadCSS(href, callback) {
 /**
  * Updates all section status in a container element.
  * @param {Element} main The container element
- * @preserve
+ * @preserve Exclude from terser
  */
 export function updateSectionsStatus(main) {
   const sections = [...main.querySelectorAll(':scope > div.section')];
@@ -80,7 +80,7 @@ export function updateSectionsStatus(main) {
 /**
  * Loads JS and CSS for a block.
  * @param {Element} block The block element
- * @preserve
+ * @preserve Exclude from terser
  */
 export async function loadBlock(block, eager = false) {
   if (!(block.getAttribute('data-block-status') === 'loading' || block.getAttribute('data-block-status') === 'loaded')) {
@@ -116,7 +116,7 @@ export async function loadBlock(block, eager = false) {
 /**
  * Loads JS and CSS for all blocks in a container element.
  * @param {Element} main The container element
- * @preserve
+ * @preserve Exclude from terser
  */
 export async function loadBlocks(main) {
   updateSectionsStatus(main);
@@ -132,7 +132,7 @@ export async function loadBlocks(main) {
  * Builds a block DOM Element from a two dimensional array
  * @param {string} blockName name of the block
  * @param {any} content two dimensional array or string or object of content
- * @preserve
+ * @preserve Exclude from terser
  */
 export function buildBlock(blockName, content) {
   const table = Array.isArray(content) ? content : [[content]];
@@ -163,7 +163,7 @@ export function buildBlock(blockName, content) {
 /**
  * Loads the header block.
  * @param {Element} header The header element
- * @preserve
+ * @preserve Exclude from terser
  */
 export async function loadHeader(header, productionDomains) {
   const headerBlock = buildBlock('header', '');
@@ -176,7 +176,7 @@ export async function loadHeader(header, productionDomains) {
 /**
  * Loads the footer block.
  * @param {Element} footer The footer element
- * @preserve
+ * @preserve Exclude from terser
  */
 export async function loadFooter(footer, productionDomains) {
   const footerBlock = buildBlock('footer', '');
@@ -188,7 +188,7 @@ export async function loadFooter(footer, productionDomains) {
 
 /**
  * load LCP block and/or wait for LCP in default content.
- * @preserve
+ * @preserve Exclude from terser
  */
 export async function waitForLCP(LCP_BLOCKS, autoAppear) {
   // eslint-disable-next-line no-use-before-define

@@ -15,7 +15,7 @@
  * @param {string} src The image URL
  * @param {boolean} eager load image eager
  * @param {Array} breakpoints breakpoints and corresponding params (eg. width)
- * @preserve
+ * @preserve Exclude from terser
  */
 export function createOptimizedPicture(src, alt = '', eager = false, breakpoints = [{ media: '(min-width: 400px)', width: '2000' }, { width: '750' }], classes = []) {
   const url = new URL(src, window.location.href);
@@ -59,7 +59,7 @@ export function createOptimizedPicture(src, alt = '', eager = false, breakpoints
  * Given a set of breakpoints, returns the appropriate image URL for the most optimized version.
  * @param {string} src The image URL
  * @param {Array} breakpoints breakpoints and corresponding params (eg. width)
- * @preserve
+ * @preserve Exclude from terser
  */
 export function getOptimizedImagePath(src, breakpoints = [{ media: '(min-width: 400px)', width: '2000' }, { width: '750' }]) {
   const url = new URL(src, window.location.href);
@@ -72,7 +72,7 @@ export function getOptimizedImagePath(src, breakpoints = [{ media: '(min-width: 
 /**
  * Removes formatting from images.
  * @param {Element} main The container element
- * @preserve
+ * @preserve Exclude from terser
  */
 export function removeStylingFromImages(main) {
   // remove styling from images, if any

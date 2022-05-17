@@ -14,7 +14,7 @@
  * Retrieves the content of a metadata tag.
  * @param {string} name The metadata name (or property)
  * @returns {string} The metadata value
- * @preserve
+ * @preserve Exclude from terser
  */
 export function getMetadata(name) {
   const attr = name && name.includes(':') ? 'property' : 'name';
