@@ -1,3 +1,10 @@
+## [1.5.4](https://github.com/dylandepass/helix-web-library/compare/v1.5.3...v1.5.4) (2022-05-17)
+
+
+### Bug Fixes
+
+* skypack docs.. trigger build for codecov ([62d206b](https://github.com/dylandepass/helix-web-library/commit/62d206b73d26047e231e425da2bec8731c487353))
+
 ## [1.5.3](https://github.com/dylandepass/helix-web-library/compare/v1.5.2...v1.5.3) (2022-05-17)
 
 
