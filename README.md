@@ -19,8 +19,11 @@ Download the required bundles from the [releases page](https://github.com/dyland
 
 ### Skypack Release
 [Helix Web Framework ESM](https://cdn.skypack.dev/@dylandepass/helix-web-library@latest/dist/helix-web-library.esm.js)
+
 [Helix Web Framework ESM (Minified)](https://cdn.skypack.dev/@dylandepass/helix-web-library@latest/dist/helix-web-library.esm.min.js)
+
 [Helix Web Forms ESM](https://cdn.skypack.dev/@dylandepass/helix-web-library@latest/dist/helix-web-forms.esm.js)
+
 [Helix Web Forms ESM (Minified)](https://cdn.skypack.dev/@dylandepass/helix-web-library@latest/dist/helix-web-forms.esm.min.js)
 
 ### NPM
