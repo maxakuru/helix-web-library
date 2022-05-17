@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/dylandepass/helix-web-library/compare/v1.4.1...v1.4.2) (2022-05-02)
+
+
+### Bug Fixes
+
+* make makeLinksRelative configurable ([94cb8e5](https://github.com/dylandepass/helix-web-library/commit/94cb8e52fb478aa98e74e938ab9c31f5c5b48a19))
+
 ## [1.4.1](https://github.com/dylandepass/helix-web-library/compare/v1.4.0...v1.4.1) (2022-04-26)
 
 
