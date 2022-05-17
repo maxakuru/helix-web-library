@@ -173,8 +173,8 @@ export default class HelixApp {
     this.buildAutoBlocks(main);
     this.decorateSections(main);
     this.decorateBlocks(main);
-    if (this.withPostDecorateBlockHook) {
-      this.withPostDecorateBlockHook(main);
+    if (this.postDecorateBlockHook) {
+      this.postDecorateBlockHook(main);
     }
   }
 
