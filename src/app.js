@@ -133,6 +133,14 @@ export default class HelixApp {
   }
 
   /**
+   * Hook direct after block decoration and before waitForLCP.
+   */
+  withPostDecorateBlockHook(hook) {
+    this.postDecorateBlockHook = hook;
+    return this;
+  }
+
+  /**
    * Decorate the page
    */
   async decorate() {
@@ -165,6 +173,9 @@ export default class HelixApp {
     this.buildAutoBlocks(main);
     this.decorateSections(main);
     this.decorateBlocks(main);
+    if (this.withPostDecorateBlockHook) {
+      this.withPostDecorateBlockHook(main);
+    }
   }
 
   /**
