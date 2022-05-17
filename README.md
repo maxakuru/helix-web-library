@@ -24,20 +24,18 @@ $ npm install @dylandepass/helix-web-library
 
 ## Usage
 
-The three scripts are offered `helix-web-framework` and `helix-web-forms`.
-
-### helix-web-core
-Includes [functions](docs/API.md) that can be used to aid in the decoration and loading of a helix page.
+The two scripts included are `helix-web-framework` and `helix-web-forms`.
 
 ### helix-web-framework
-Includes a `HelixApp` class that abstracts the decoration and loading of a helix page. This class provides extension points for customization during the decoration process.
+Includes a helper class that abstracts the decoration and loading of a helix page. This class provides various hooks and overrides for customizating the helix decoration and loading process.
 
-Clients can decorate pages using the provided `HelixApp` builder class.
-
-#### Using the builder
+#### Usage
 
 ```js
-new HelixApp.Builder({
+
+import { HelixApp } from 'https://cdn.skypack.dev/@dylandepass/helix-web-library@latest/dist/helix-web-library.esm.min.js';
+
+HelixApp.init({
   rumEnabled: true,
   rumGeneration: 'project-1',
   productionDomains: ['acme.com'],
