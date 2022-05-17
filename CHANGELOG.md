@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/dylandepass/helix-web-library/compare/v1.5.0...v1.5.1) (2022-05-17)
+
+
+### Bug Fixes
+
+* postDecorateBlockHook bug fix ([b2a01d6](https://github.com/dylandepass/helix-web-library/commit/b2a01d6f3b04867928ea7e7a783facdf0b3fd867))
+
 # [1.5.0](https://github.com/dylandepass/helix-web-library/compare/v1.4.3...v1.5.0) (2022-05-17)
 
 
