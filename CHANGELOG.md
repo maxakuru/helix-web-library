@@ -1,3 +1,10 @@
+## [1.5.3](https://github.com/dylandepass/helix-web-library/compare/v1.5.2...v1.5.3) (2022-05-17)
+
+
+### Bug Fixes
+
+* remove withDecorateBlocks ([54d3752](https://github.com/dylandepass/helix-web-library/commit/54d3752c3a1e06840c33c7f0b73b4cab4977f706))
+
 ## [1.5.2](https://github.com/dylandepass/helix-web-library/compare/v1.5.1...v1.5.2) (2022-05-17)
 
 
