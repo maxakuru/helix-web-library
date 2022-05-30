@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/dylandepass/helix-web-library/compare/v1.6.0...v1.6.1) (2022-05-30)
+
+
+### Bug Fixes
+
+* guard hash query ([5235416](https://github.com/dylandepass/helix-web-library/commit/5235416b0e1df4c5770c10156a8d4d00ff206fcf))
+
 # [1.6.0](https://github.com/dylandepass/helix-web-library/compare/v1.5.4...v1.6.0) (2022-05-30)
 
 
