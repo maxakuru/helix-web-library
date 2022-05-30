@@ -232,6 +232,10 @@ export default class HelixApp {
     const main = doc.querySelector('main');
     await loadBlocks(main);
 
+    const { hash } = window.location;
+    const element = main.querySelector(hash);
+    if (hash && element) element.scrollIntoView();
+
     this.loadHeader(doc.querySelector('header'));
     this.loadFooter(doc.querySelector('footer'));
 
