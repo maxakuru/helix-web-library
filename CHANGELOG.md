@@ -1,3 +1,15 @@
+# [1.6.0](https://github.com/dylandepass/helix-web-library/compare/v1.5.4...v1.6.0) (2022-05-30)
+
+
+### Features
+
+* add decorateTemplateAndTheme ([50f6aec](https://github.com/dylandepass/helix-web-library/commit/50f6aec8a4d0bada1241f7fd9fc20c78cfd48b60))
+* Decorate Buttons ([1ce56f0](https://github.com/dylandepass/helix-web-library/commit/1ce56f0870e07cfc2aa311bc83bd8dafb1e43703))
+* getMetadata can return multiple values ([cd6b816](https://github.com/dylandepass/helix-web-library/commit/cd6b816b9570e58058c777599652148c72058487))
+* Icon handling ([cea9c81](https://github.com/dylandepass/helix-web-library/commit/cea9c81a596432036db3bfe4ae890b0e680ec88a))
+* if hash found scrollIntoView ([c19e88c](https://github.com/dylandepass/helix-web-library/commit/c19e88cd2b066bbf8da2d1ed17af62ed60d76839))
+* placeholders ([689a9b9](https://github.com/dylandepass/helix-web-library/commit/689a9b9e7a31e77bc87741faf70a2a73d73bc003))
+
 ## [1.5.4](https://github.com/dylandepass/helix-web-library/compare/v1.5.3...v1.5.4) (2022-05-17)
 
 
