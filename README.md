@@ -99,7 +99,7 @@ If you need to customize the page decoration the following overrides are availab
 | `withDecorateIcons` | Overrides the default decorate icons logic |
 | `withDecorateButtons` | Overrides the default decorate buttons logic |
 
-For example, if you want a difference decoration of your buttons the following could be done
+For example, if you want a different decoration for your buttons you can use `withDecorateButtons` to override the default behaviour.
 
 ```js
 import { HelixApp } from 'https://cdn.skypack.dev/@dylandepass/helix-web-library@latest/dist/helix-web-library.esm.min.js';
@@ -108,7 +108,7 @@ HelixApp.init({
   ...
 })
   ...
-  .withDecorateIcons((main) => {
+  .withDecorateButtons((main) => {
     // custom button decoration code
   })
   .decorate();
