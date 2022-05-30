@@ -26,6 +26,7 @@ import {
   decorateSections,
   decorateBlock,
   decoratePictures,
+  decorateTemplateAndTheme,
   removeStylingFromImages,
 } from './core.js';
 
@@ -193,6 +194,7 @@ export default class HelixApp {
    * Should be overridden by subclasses.
    */
   async loadEager(doc) {
+    decorateTemplateAndTheme();
     const main = doc.querySelector('main');
     if (main) {
       this.decorateMain(main);

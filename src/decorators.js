@@ -11,6 +11,7 @@
  */
 
 import { createOptimizedPicture } from './images.js';
+import { getMetadata } from './metadata.js';
 
 /* eslint-disable no-param-reassign */
 
@@ -223,4 +224,14 @@ export function makeLinksRelative(main, productionDomains = []) {
       }
     }
   });
+}
+
+/**
+ * Set template (page structure) and theme (page styles).
+ */
+export function decorateTemplateAndTheme() {
+  const template = getMetadata('template');
+  if (template) document.body.classList.add(template);
+  const theme = getMetadata('theme');
+  if (theme) document.body.classList.add(theme);
 }
