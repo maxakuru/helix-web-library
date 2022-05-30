@@ -97,6 +97,8 @@ If you need to customize the page decoration the following overrides are availab
 | `withDecorateBlock` | Overrides the default decorate block logic |
 | `withLoadHeader` | Overrides the default load header logic |
 | `withLoadFooter` | Overrides the default load footer logic |
+| `withDecorateIcons` | Overrides the default decorate icons logic |
+| `withDecorateButtons` | Overrides the default decorate buttons logic |
 
 See the [API documentation](docs/API.md).
 
