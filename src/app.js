@@ -25,6 +25,7 @@ import {
   registerPerformanceLogger,
   decorateSections,
   decorateBlock,
+  decorateButtons,
   decorateIcons,
   decoratePictures,
   decorateTemplateAndTheme,
@@ -143,6 +144,14 @@ export default class HelixApp {
   }
 
   /**
+   * Overrides the decorateIcons function.
+   */
+  withDecorateButtons(override) {
+    this.decorateButtons = override;
+    return this;
+  }
+
+  /**
    * Hook direct after block decoration and before waitForLCP.
    */
   withPostDecorateBlockHook(hook) {
@@ -180,6 +189,7 @@ export default class HelixApp {
     if (this.config.makeLinksRelative ?? defaultConfig.makeLinksRelative) {
       makeLinksRelative(main, this.config.productionDomains);
     }
+    this.decorateButtons(main);
     this.decorateIcons(main);
     this.buildAutoBlocks(main);
     this.decorateSections(main);
@@ -288,6 +298,15 @@ export default class HelixApp {
    */
   decorateIcons(main) {
     decorateIcons(main);
+  }
+
+  /**
+   * Decorates paragraphs containing a single link as buttons.
+   * @param {Element} block The block element
+   * @preserve Exclude from terser
+   */
+  decorateButtons(main) {
+    decorateButtons(main);
   }
 
   /**
