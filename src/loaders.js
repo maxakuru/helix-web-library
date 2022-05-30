@@ -12,7 +12,7 @@
 
 /* eslint-disable no-param-reassign */
 
-import { decorateBlock, makeLinksRelative } from './decorators.js';
+import { decorateBlock, makeLinksRelative, toCamelCase } from './decorators.js';
 
 /**
  * loads a script by adding a script tag to the head.
@@ -211,4 +211,35 @@ export async function waitForLCP(LCP_BLOCKS, autoAppear) {
       resolve();
     }
   });
+}
+
+/**
+ * Gets placeholders object
+ * @param {string} prefix
+ */
+export async function fetchPlaceholders(prefix = 'default') {
+  window.placeholders = window.placeholders || {};
+  const loaded = window.placeholders[`${prefix}-loaded`];
+  if (!loaded) {
+    window.placeholders[`${prefix}-loaded`] = new Promise((resolve, reject) => {
+      try {
+        fetch(`${prefix === 'default' ? '' : prefix}/placeholders.json`)
+          .then((resp) => resp.json())
+          .then((json) => {
+            const placeholders = {};
+            json.data.forEach((placeholder) => {
+              placeholders[toCamelCase(placeholder.Key)] = placeholder.Text;
+            });
+            window.placeholders[prefix] = placeholders;
+            resolve();
+          });
+      } catch (e) {
+        // error loading placeholders
+        window.placeholders[prefix] = {};
+        reject();
+      }
+    });
+  }
+  await window.placeholders[`${prefix}-loaded`];
+  return (window.placeholders[prefix]);
 }
