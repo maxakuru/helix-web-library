@@ -59,7 +59,6 @@ HelixApp.init({
       console.error('Auto Blocking failed', error);
     }
   })
-  .build()
   .decorate();
 ```
 
@@ -100,6 +99,22 @@ If you need to customize the page decoration the following overrides are availab
 | `withDecorateIcons` | Overrides the default decorate icons logic |
 | `withDecorateButtons` | Overrides the default decorate buttons logic |
 
+For example, if you want a difference decoration of your buttons the following could be done
+
+```js
+import { HelixApp } from 'https://cdn.skypack.dev/@dylandepass/helix-web-library@latest/dist/helix-web-library.esm.min.js';
+
+HelixApp.init({
+  ...
+})
+  ...
+  .withDecorateIcons((main) => {
+    // custom button decoration code
+  })
+  .decorate();
+```
+
+
 See the [API documentation](docs/API.md).
 
 ### helix-web-forms
@@ -136,6 +151,8 @@ export default async function decorate(block) {
 
 
 ## Development
+
+New release are built automatically with every commit to main.
 
 ### Build
 
