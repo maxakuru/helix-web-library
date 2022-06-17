@@ -1,3 +1,10 @@
+## [1.6.2](https://github.com/dylandepass/helix-web-library/compare/v1.6.1...v1.6.2) (2022-06-17)
+
+
+### Bug Fixes
+
+* catch any possible errors with scrollIntoView ([2aa2efb](https://github.com/dylandepass/helix-web-library/commit/2aa2efbd614b7d355438dc8f9ed7c717ec76f699))
+
 ## [1.6.1](https://github.com/dylandepass/helix-web-library/compare/v1.6.0...v1.6.1) (2022-05-30)
 
 
