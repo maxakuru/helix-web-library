@@ -237,7 +237,9 @@ export default class HelixApp {
       try {
         const element = main.querySelector(hash);
         if (hash && element) element.scrollIntoView();
-      } catch { /* ignore */ }
+      } catch {
+        /* do nothing */
+      }
     }
 
     this.loadHeader(doc.querySelector('header'));
@@ -247,7 +249,7 @@ export default class HelixApp {
       loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
     }
 
-    addFavIcon(`${window.hlx.codeBasePath}/icon.svg`);
+    addFavIcon(`${window.hlx.codeBasePath}/styles/icon.svg`);
     if (this.loadLazyHook) {
       this.loadLazyHook(doc);
     }
@@ -263,7 +265,7 @@ export default class HelixApp {
    * Builds all synthetic blocks in a container element.
    * @param {Element} main The container element
    */
-  buildAutoBlocks(_) { }
+  buildAutoBlocks() { }
 
   /**
    * Loads the header block.
