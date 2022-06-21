@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/dylandepass/helix-web-library/compare/v1.6.2...v1.7.0) (2022-06-21)
+
+
+### Features
+
+* img support in block config, fav icon in styles directory ([#21](https://github.com/dylandepass/helix-web-library/issues/21)) ([7d5199a](https://github.com/dylandepass/helix-web-library/commit/7d5199ae58fb2af3207fc7f03471b8958b21e866))
+
 ## [1.6.2](https://github.com/dylandepass/helix-web-library/compare/v1.6.1...v1.6.2) (2022-06-17)
 
 
