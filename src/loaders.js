@@ -86,28 +86,30 @@ export async function loadBlock(block, eager = false) {
   if (!(block.getAttribute('data-block-status') === 'loading' || block.getAttribute('data-block-status') === 'loaded')) {
     block.setAttribute('data-block-status', 'loading');
     const blockName = block.getAttribute('data-block-name');
-    try {
-      const cssLoaded = new Promise((resolve) => {
-        loadCSS(`/blocks/${blockName}/${blockName}.css`, resolve);
-      });
-      const decorationComplete = new Promise((resolve) => {
-        (async () => {
-          try {
-            const mod = await import(`${window.hlx.codeBasePath}/blocks/${blockName}/${blockName}.js`);
-            if (mod.default) {
-              await mod.default(block, blockName, document, eager);
-            }
-          } catch (err) {
+    if (blockName) {
+      try {
+        const cssLoaded = new Promise((resolve) => {
+          loadCSS(`/blocks/${blockName}/${blockName}.css`, resolve);
+        });
+        const decorationComplete = new Promise((resolve) => {
+          (async () => {
+            try {
+              const mod = await import(`${window.hlx.codeBasePath}/blocks/${blockName}/${blockName}.js`);
+              if (mod.default) {
+                await mod.default(block, blockName, document, eager);
+              }
+            } catch (err) {
             // eslint-disable-next-line no-console
-            console.log(`failed to load module for ${blockName}`, err);
-          }
-          resolve();
-        })();
-      });
-      await Promise.all([cssLoaded, decorationComplete]);
-    } catch (err) {
+              console.log(`failed to load module for ${blockName}`, err);
+            }
+            resolve();
+          })();
+        });
+        await Promise.all([cssLoaded, decorationComplete]);
+      } catch (err) {
       // eslint-disable-next-line no-console
-      console.log(`failed to load block ${blockName}`, err);
+        console.log(`failed to load block ${blockName}`, err);
+      }
     }
     block.setAttribute('data-block-status', 'loaded');
   }
