@@ -4,6 +4,7 @@
   "description": "Helix Web Library",
   "main": "src/index.js",
   "type": "module",
+  "bin": "./bin/cli.js",
   "scripts": {
     "test": " c8 mocha",
     "test-ci": "c8 mocha && codecov",

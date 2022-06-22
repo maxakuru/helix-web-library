@@ -28,31 +28,36 @@ const banner = `/*
 const bundles = [
   {
     source: 'src/index.js',
-    outputFile: 'helix-web-library',
+    outputFile: 'dist/helix-web-library',
   },
   {
     source: 'src/components/form/index.js',
-    outputFile: 'helix-web-forms',
+    outputFile: 'dist/helix-web-forms',
+  },
+  {
+    source: 'cli/index.js',
+    outputFile: 'bin/cli',
+    minify: false,
   },
 ];
 
-export default bundles.map((bundle) => ({
-  input: bundle.source,
+export default [...bundles.map(({ outputFile, source, minify = true }) => ({
+  input: source,
   inlineDynamicImports: true,
   output: [
     {
-      file: `dist/${bundle.outputFile}.esm.js`,
+      file: `${outputFile}.esm.js`,
       format: 'es',
       sourcemap: false,
       exports: 'auto',
     },
-    {
-      file: `dist/${bundle.outputFile}.esm.min.js`,
+    minify && {
+      file: `${outputFile}.esm.min.js`,
       format: 'es',
       sourcemap: false,
       exports: 'auto',
       plugins: [terser()],
       banner,
     },
-  ],
-}));
+  ].filter((m) => m),
+}))];
