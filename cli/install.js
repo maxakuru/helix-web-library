@@ -17,7 +17,7 @@ import path from 'path';
 import { createReadStream } from 'fs';
 import { fileURLToPath } from 'url';
 
-async function getInstallDir(dir = '.') {
+async function getInstallDir(dir) {
   const cwd = process.cwd();
   const installDir = path.resolve(cwd, dir);
 

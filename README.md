@@ -14,6 +14,19 @@
 
 Can be added to a helix project either with by downloading the bundles directly from the releases page on github, using a cloud bundler like skypack or using npm (requires a build step).
 
+### NPM
+```bash
+$ npm install @dylandepass/helix-web-library
+```
+
+After installing, the library bundle can be added to `scripts/` using the CLI:
+```bash
+$ npx helix-web-library install
+```
+
+> For more updating, removing, and options, see [CLI](#cli)
+
+
 ### Github Release
 Download the required bundles from the [releases page](https://github.com/dylandepass/helix-web-library/releases).
 
@@ -25,11 +38,6 @@ Download the required bundles from the [releases page](https://github.com/dyland
 [Helix Web Forms ESM](https://cdn.skypack.dev/@dylandepass/helix-web-library@latest/dist/helix-web-forms.esm.js)
 
 [Helix Web Forms ESM (Minified)](https://cdn.skypack.dev/@dylandepass/helix-web-library@latest/dist/helix-web-forms.esm.min.js)
-
-### NPM
-```bash
-$ npm install @dylandepass/helix-web-library
-```
 
 ## What's included?
 
@@ -148,6 +156,31 @@ export default async function decorate(block) {
 | Rules       | Basic rules enginem, currently only supports `visible`                                                      | `{"type": "visible", "condition": {"key": "cms", "operator": "eq",  "value": "AEM Sites"}}` |
 | Extra       | Redirect path after submission                                                                              | `/thank-you`                                                                                |
 
+## CLI
+
+### Examples
+
+Update/reinstall (overwrites existing file):
+```bash
+$ npx helix-web-library install --force
+```
+
+Remove without installing:
+```bash
+$ npx helix-web-library uninstall
+```
+
+Install to a different path (must be inside current working directory):
+```bash
+$ npx helix-web-library install --dir=./libs
+```
+
+### Install Options
+| Option | Shorthand | Description | Default |
+| ------ | --------- | ----------- | ------- |
+| `--dir` | `-d` | Install directory | `-d=./scripts` |
+| `--force` | `-f` | Force overwrite existing, upgrade by deleting existing library at path. | |
+| `--minify` | `-m` | Install minified library | |
 
 
 ## Development
