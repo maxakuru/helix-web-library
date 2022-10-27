@@ -12,7 +12,9 @@
 
 import { terser } from 'rollup-plugin-terser';
 
-const banner = `/*
+const banner = `/* eslint-disable */
+/*
+ * @license
  * Copyright ${new Date().getFullYear()} Adobe. All rights reserved.
  * This file is licensed to you under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License. You may obtain a copy
@@ -22,7 +24,6 @@ const banner = `/*
  * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
- * @preserve
  */`;
 
 const bundles = [
@@ -36,7 +37,15 @@ const bundles = [
   },
 ];
 
-export default bundles.map((bundle) => ({
+function stripComments(node, comment) {
+  const { type, value } = comment;
+  if (type === 'comment2') {
+    return value === ' eslint-disable ' || /@license/i.test(value);
+  }
+  return false;
+}
+
+export default (ctx) => bundles.map((bundle) => ({
   input: bundle.source,
   inlineDynamicImports: true,
   output: [
@@ -51,7 +60,13 @@ export default bundles.map((bundle) => ({
       format: 'es',
       sourcemap: false,
       exports: 'auto',
-      plugins: [terser()],
+      plugins: [
+        terser({
+          format: {
+            comments: ctx.environment !== 'NODE_ENV:production' || stripComments,
+          },
+        }),
+      ],
       banner,
     },
   ],

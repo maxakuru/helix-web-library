@@ -47,7 +47,9 @@ const defaultConfig = {
  * @property {string[]} productionDomains
  * @property {string[]} lcpBlocks
  * @property {boolean} lazyStyles
+ * @property {string} favicon
  * @property {boolean} autoAppear
+ * @property {boolean} eagerHeader
  */
 
 export default class HelixApp {
@@ -229,6 +231,9 @@ export default class HelixApp {
    * loads everything that doesn't need to be delayed.
    */
   async loadLazy(doc) {
+    if (this.config.eagerHeader) {
+      await this.loadHeader(doc.querySelector('header'));
+    }
     const main = doc.querySelector('main');
     await loadBlocks(main);
 
@@ -242,14 +247,18 @@ export default class HelixApp {
       }
     }
 
-    this.loadHeader(doc.querySelector('header'));
+    if (!this.config.eagerHeader) {
+      this.loadHeader(doc.querySelector('header'));
+    }
     this.loadFooter(doc.querySelector('footer'));
 
     if (this.config.lazyStyles ?? defaultConfig.lazyStyles) {
       loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
     }
 
-    addFavIcon(`${window.hlx.codeBasePath}/styles/icon.svg`);
+    if (this.config.favicon !== null) {
+      addFavIcon(this.config.favicon || `${window.hlx.codeBasePath}/styles/icon.svg`);
+    }
     if (this.loadLazyHook) {
       this.loadLazyHook(doc);
     }

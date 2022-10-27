@@ -219,13 +219,13 @@ export async function waitForLCP(LCP_BLOCKS, autoAppear) {
  * Gets placeholders object
  * @param {string} prefix
  */
-export async function fetchPlaceholders(prefix = 'default') {
+export async function fetchPlaceholders(prefix = '') {
   window.placeholders = window.placeholders || {};
   const loaded = window.placeholders[`${prefix}-loaded`];
   if (!loaded) {
     window.placeholders[`${prefix}-loaded`] = new Promise((resolve, reject) => {
       try {
-        fetch(`${prefix === 'default' ? '' : prefix}/placeholders.json`)
+        fetch(`${prefix}/placeholders.json`)
           .then((resp) => resp.json())
           .then((json) => {
             const placeholders = {};
@@ -243,5 +243,5 @@ export async function fetchPlaceholders(prefix = 'default') {
     });
   }
   await window.placeholders[`${prefix}-loaded`];
-  return (window.placeholders[prefix]);
+  return window.placeholders[prefix];
 }
