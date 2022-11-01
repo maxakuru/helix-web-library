@@ -44,7 +44,7 @@ function createSelect(fd, swap) {
     option.value = o;
     select.append(option);
   });
-  if (isRequired(fd.Required)) {
+  if (isRequired(fd)) {
     select.setAttribute('required', 'required');
   }
   if (fd.Autocomplete) {
@@ -130,7 +130,7 @@ function createInput(fd, swap) {
   input.type = fd.Type;
   input.id = fd.Field;
   input.setAttribute('placeholder', swap[camelCase(fd.Placeholder)] || fd.Placeholder);
-  if (isRequired(fd.Required)) {
+  if (isRequired(fd)) {
     input.setAttribute('required', 'required');
   }
   if (fd.Autocomplete) {
@@ -143,7 +143,7 @@ function createTextArea(fd, swap) {
   const input = document.createElement('textarea');
   input.id = fd.Field;
   input.setAttribute('placeholder', swap[camelCase(fd.Placeholder)] || fd.Placeholder);
-  if (isRequired(fd.Required)) {
+  if (isRequired(fd)) {
     input.setAttribute('required', 'required');
   }
   if (fd.Autocomplete) {
@@ -156,7 +156,7 @@ function createLabel(fd, swap) {
   const label = document.createElement('label');
   label.setAttribute('for', fd.Field);
   label.textContent = swap[camelCase(fd.Label)] || fd.Label;
-  if (isRequired(fd.Required)) {
+  if (isRequired(fd)) {
     label.classList.add('required');
   }
   return label;
